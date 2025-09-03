@@ -8,7 +8,7 @@ readme = "README.md"
 dependencies = []
 
 [project.scripts]
-cpp-forge = "forge_cpp.cli:main"
+cpp-forge = "cpp_forge.cli:main"
 
 [build-system]
 requires = ["setuptools", "wheel"]

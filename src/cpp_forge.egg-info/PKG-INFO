@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: cpp-forge
+Version: 0.0.1
+Summary: Create-react-app for modern C++
+Author: Antoine Duteyrat
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# forge-cpp
+Create-react-app for modern C++.
+
+## Quickstart
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e .
+forge new demo && cd demo
+cmake -S . -B build && cmake --build build -j && ./build/demo
+```

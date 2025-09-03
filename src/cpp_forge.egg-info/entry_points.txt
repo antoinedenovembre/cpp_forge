@@ -1,0 +1,2 @@
+[console_scripts]
+cpp-forge = cpp_forge.cli:main
