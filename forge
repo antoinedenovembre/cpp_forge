@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Global variables
+VERSION="0.1.0"
+FORGE_CONFIG="forge.json"
+
+# Source logging functions
+source "$(dirname "$0")/log.sh"
+
+# Check dependencies
+check_deps() {
+    command -v jq >/dev/null 2>&1 || error "jq is required. Install it with: apt install jq / brew install jq"
+    command -v git >/dev/null 2>&1 || error "git is required"
+}
+
+case "$1" in
+    init)
+        shift
+        source "$(dirname "$0")/forge-init.sh"
+        forge_init "$@"
+        ;;
+    install)
+        shift
+        source "$(dirname "$0")/forge-install.sh"
+        forge_install "$@"
+        ;;
+    build)
+        shift
+        source "$(dirname "$0")/forge-build.sh"
+        forge_build "$@"
+        ;;
+    run)
+        shift
+        source "$(dirname "$0")/forge-run.sh"
+        forge_run "$@"
+        ;;
+    clean)
+        shift
+        source "$(dirname "$0")/forge-clean.sh"
+        forge_clean "$@"
+        ;;
+    --version|-v)
+        echo "forge version $VERSION"
+        ;;
+    --help|-h|"")
+        cat << EOF
+Forge - A C++ project manager
+
+Usage: forge <command> [options]
+
+Commands:
+    init [name]       Initialize a new C++ project
+    install [dep]     Install dependencies
+    build             Build the project
+    run               Build and run the project
+    clean             Clean build artifacts
+
+Options:
+    -h, --help        Show this help
+    -v, --version     Show version
+
+EOF
+        ;;
+    *)
+        error "Unknown command: $1. Use 'forge --help' for usage."
+        ;;
+esac
