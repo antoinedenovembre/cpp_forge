@@ -69,8 +69,8 @@ install_forge() {
     # Copy and modify main script
     $SUDO cp bin/forge "$install_dir/forge"
     
-    # Update paths in the forge script
-    $SUDO sed -i.bak "s|SCRIPT_DIR=.*|SCRIPT_DIR=\"/usr/local\"|g" "$install_dir/forge"
+    # Update paths in the forge script to point to /usr/local/lib/forge
+    $SUDO sed -i.bak 's|LIB_DIR="$SCRIPT_DIR/lib"|LIB_DIR="/usr/local/lib/forge"|g' "$install_dir/forge"
     $SUDO rm "$install_dir/forge.bak" 2>/dev/null || true
     
     # Make executable
