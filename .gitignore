@@ -1,5 +1,20 @@
-build/
-libs/
-*.o
-*.out
+# macOS
 .DS_Store
+
+# Backup files (created by sed -i, vim, etc.)
+*.bak
+*.swp
+*.swo
+*~
+
+# Test projects
+test/
+test_*/
+my_project/
+example/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
