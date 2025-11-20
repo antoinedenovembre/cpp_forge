@@ -92,6 +92,7 @@ verify_installation() {
         echo "  cd my_project"
         echo "  forge build"
         echo "  forge run"
+        echo "  forge test"
     else
         error "Installation failed. forge command not found in PATH"
     fi

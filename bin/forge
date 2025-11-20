@@ -37,6 +37,11 @@ case "$1" in
         source "$LIB_DIR/forge-run.sh"
         forge_run "$@"
         ;;
+    test)
+        shift
+        source "$LIB_DIR/forge-test.sh"
+        forge_test "$@"
+        ;;
     clean)
         shift
         source "$LIB_DIR/forge-clean.sh"
@@ -57,6 +62,7 @@ Commands:
     build             Build the project
     run               Build and run the project
     clean             Clean build artifacts
+    test              Run unit tests
 
 Options:
     -h, --help        Show this help

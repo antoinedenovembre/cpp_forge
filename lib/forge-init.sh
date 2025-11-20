@@ -29,6 +29,7 @@ forge_init() {
         echo "  cd $project_name"
         echo "  forge build"
         echo "  forge run"
+        echo "  forge test"
     fi
 }
 
